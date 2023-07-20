@@ -10,6 +10,8 @@ public class User {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
+
+
    @Column(name = "name")
    private String firstName;
 
@@ -18,6 +20,12 @@ public class User {
 
    @Column(name = "email")
    private String email;
+
+   @OneToOne
+   @JoinColumn(name ="car_id", referencedColumnName = "id")
+   private  Car car;
+
+
 
    public User() {}
    
