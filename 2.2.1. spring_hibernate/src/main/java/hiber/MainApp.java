@@ -10,41 +10,41 @@ import java.util.List;
 
 public class MainApp {
 
-   public static void main(String[] args) {
-      AnnotationConfigApplicationContext context =
-              new AnnotationConfigApplicationContext(AppConfig.class);
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(AppConfig.class);
 
-      UserService userService = context.getBean(UserService.class);
+        UserService userService = context.getBean(UserService.class);
 
-      User user1 = new User("User1", "Lastname1", "user1@mail.ru");
-      User user2 = new User("User2", "Lastname2", "user2@mail.ru");
-      User user3 = new User("User3", "Lastname3", "user3@mail.ru");
-      User user4 = new User("User4", "Lastname4", "user4@mail.ru");
+        User user1 = new User("User1", "Lastname1", "user1@mail.ru");
+        User user2 = new User("User2", "Lastname2", "user2@mail.ru");
+        User user3 = new User("User3", "Lastname3", "user3@mail.ru");
+        User user4 = new User("User4", "Lastname4", "user4@mail.ru");
 
-      Car bmw = new Car("BMW", 110, user1);
-      Car mercedes = new Car("Mercedes", 112, user2);
-      Car audi = new Car("Audi", 113, user3);
-      Car toyota = new Car("Toyota", 114, user4);
+        Car car1 = new Car("Tesla", 10, user1);
+        Car car2 = new Car("Bibika", 11, user2);
+        Car car3 = new Car("Toyota", 12, user3);
+        Car car4 = new Car("Mitshubishi", 13, user4);
 
-      user1.setCar(bmw);
-      user2.setCar(mercedes);
-      user3.setCar(audi);
-      user4.setCar(toyota);
+        user1.setCar(car1);
+        user2.setCar(car2);
+        user3.setCar(car3);
+        user4.setCar(car4);
 
-      userService.add(user1);
-      userService.add(user2);
-      userService.add(user3);
-      userService.add(user4);
+        userService.add(user1);
+        userService.add(user2);
+        userService.add(user3);
+        userService.add(user4);
 
-      List<User> users = userService.listUsers();
-      for (User user : users) {
-         System.out.println(user.toString());
-         System.out.println();
-      }
+        List<User> users = userService.listUsers();
+        for (User user : users) {
+            System.out.println(user.toString());
+            System.out.println();
+        }
 
-      User user = userService.result("BMW", 110);
-      System.out.println(user);
+        User user = userService.result("bibika", 11);
+        System.out.println(user);
 
-      context.close();
-   }
+        context.close();
+    }
 }
