@@ -26,8 +26,7 @@ public class User {
     @PrimaryKeyJoinColumn
     private Car car;
 
-    public User() {
-    }
+    public User() {}
 
 
     public User(String firstName, String lastName, String email) {
