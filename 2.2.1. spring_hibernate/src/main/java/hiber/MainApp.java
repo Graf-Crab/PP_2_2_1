@@ -36,13 +36,14 @@ public class MainApp {
         userService.add(user3);
         userService.add(user4);
 
-        List<User> users = userService.listUsers();
+        List<User> users = userService.getUsers();
+
         for (User user : users) {
             System.out.println(user.toString());
             System.out.println();
         }
 
-        User user = userService.result("bibika", 11);
+        User user = userService.getResult("bibika", 11);
         System.out.println(user);
 
         context.close();
