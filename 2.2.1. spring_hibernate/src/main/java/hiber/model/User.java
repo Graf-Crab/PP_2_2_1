@@ -35,7 +35,6 @@ public class User {
         this.email = email;
     }
 
-
     public Long getCar_id() {
         return id;
     }
@@ -74,6 +73,7 @@ public class User {
 
     public void setCar(Car car) {
         this.car = car;
+        car.setUser(this);
     }
 
     @Override

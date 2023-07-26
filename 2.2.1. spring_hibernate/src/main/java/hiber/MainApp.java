@@ -16,25 +16,20 @@ public class MainApp {
 
         UserService userService = context.getBean(UserService.class);
 
-        User user1 = new User("User1", "Lastname1", "user1@mail.ru");
-        User user2 = new User("User2", "Lastname2", "user2@mail.ru");
-        User user3 = new User("User3", "Lastname3", "user3@mail.ru");
-        User user4 = new User("User4", "Lastname4", "user4@mail.ru");
+        User olga = new User("Olga", "Buzova", "buzz@gmail.ru");
+        User ksenia = new User("Ksenia", "Borodina", "borodino@mail.ru");
+        User alena = new User("Alena", "Vodonaeva", "water777@mail.ru");
+        User valera = new User("Valerii", "Meladze", "viagra@yandex.ru");
 
-        Car car1 = new Car("Tesla", 10, user1);
-        Car car2 = new Car("Bibika", 11, user2);
-        Car car3 = new Car("Toyota", 12, user3);
-        Car car4 = new Car("Mitshubishi", 13, user4);
+        olga.setCar(new Car("Tesla",01));
+        ksenia.setCar(new Car("Bugatti",02));
+        alena.setCar(new Car("Volvo",03));
+        valera.setCar(new Car("Toyta",01));
 
-        user1.setCar(car1);
-        user2.setCar(car2);
-        user3.setCar(car3);
-        user4.setCar(car4);
-
-        userService.add(user1);
-        userService.add(user2);
-        userService.add(user3);
-        userService.add(user4);
+        userService.add(olga);
+        userService.add(ksenia);
+        userService.add(alena);
+        userService.add(valera);
 
         List<User> users = userService.getUsers();
 
@@ -42,9 +37,14 @@ public class MainApp {
             System.out.println(user.toString());
             System.out.println();
         }
+        System.out.println("------------------");
+        System.out.println("Выведен весь список водителей");
+        System.out.println("------------------");
 
-        User user = userService.getResult("bibika", 11);
+        User user = userService.getResult("Tesla", 01);
         System.out.println(user);
+        System.out.println("Водитель найден");
+        System.out.println("------------------");
 
         context.close();
     }

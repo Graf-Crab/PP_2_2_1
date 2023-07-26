@@ -7,6 +7,7 @@ import java.util.Objects;
 @Table(name = "car")
 public class Car {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private long id;
     @Column(name = "model")
@@ -19,11 +20,19 @@ public class Car {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Car() {}
+    public Car() {
+    }
 
-    public Car(String model, int series, User user) {
+    public Car(String model, int series) {
         this.model = model;
         this.series = series;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
         this.user = user;
     }
 
@@ -51,13 +60,6 @@ public class Car {
         this.series = series;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     @Override
     public String toString() {
