@@ -10,5 +10,5 @@ public interface UserService {
 
     List<User> getUsers();
 
-    User getResult(String bmw, int i);
+    User getUserByCar(String bmw, int i);
 }

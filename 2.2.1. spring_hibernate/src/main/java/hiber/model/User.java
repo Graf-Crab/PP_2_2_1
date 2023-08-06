@@ -29,10 +29,12 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String email) {
+
+    public User(String firstName, String lastName, String email, Car car) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.car = car;
     }
 
     public Long getCar_id() {
@@ -67,9 +69,18 @@ public class User {
         this.email = email;
     }
 
+    public long getId() {
+        return id;
+    }
+
     public Car getCar() {
         return car;
     }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
 
     public void setCar(Car car) {
         this.car = car;
